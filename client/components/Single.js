@@ -5,7 +5,7 @@ import Photo from './Photo';
 
 const Single = React.createClass({
     render() {
-        const {postId} = this.props.params;
+        const postId = this.props.params.postId;
 
         const index = this.props.posts.findIndex(post => {
             return post.code === postId;
@@ -17,7 +17,7 @@ const Single = React.createClass({
         return (
             <div className="single-photo">
                 <Photo index={index} post={post} {...this.props} />
-                <Comments postComments={postComments} />
+                <Comments postComments={postComments} {...this.props} />
             </div>
         );
     }
